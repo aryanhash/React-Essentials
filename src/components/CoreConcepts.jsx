@@ -1,11 +1,14 @@
+import CoreConcept from './CoreConcept.jsx';
 import { CORE_CONCEPTS } from '../data.js';
-
-export default function CoreConcept({title, description, image}) {
+import Section from './Section.jsx';
+export default function CoreConcepts() {
     return (
-      <li>
-        <img src={image} alt={title} />
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </li>
+    <Section title="Core Concepts" id="core-concepts">
+        <ul>
+        {CORE_CONCEPTS.map((concept) => (
+        <CoreConcept key={concept.title} {...concept} />
+      ))}
+    </ul>
+  </Section>
     );
-  }
+}
